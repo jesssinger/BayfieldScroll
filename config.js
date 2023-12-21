@@ -137,7 +137,7 @@ var config = {
             //secondimage: 'legend2.png',
             description: 'Reference property selection is based on identifying forest ownerships with a comparable number of hectares of a given forest type as found in the project area',
             location: {
-                center: [-91.7123652, 46.3240231],
+                center: [-91.7123652, 46.2240231],
                 zoom: 10,
                 pitch: 30,
                 bearing: 0,
