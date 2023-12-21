@@ -22,7 +22,7 @@ var config = {
             alignment: 'left',
             hidden: false,
             title: 'Delineate Project Region',
-             image: 'projectregionlegend.png',
+             image: 'projectregionlegend1.png',
             description: 'A 150-mile driving distance buffer is created around the project boundary.',
             location: {
                 center: [-92.9991361, 46.2526692],
@@ -75,7 +75,7 @@ var config = {
             alignment: 'left',
             hidden: false,
             title: 'Map Forest Types within the Region',
-            image: 'forestypeslegend.png',
+            image: 'forestypeslegend2.png',
             description: '                                                  ',
            //  secondimage: 'foresttypeslegend.png',
             location: {
@@ -133,7 +133,7 @@ var config = {
             alignment: 'right',
             hidden: false,
             title: 'Identify Reference Properties: Deciduous Forest Type',
-            image: 'referproplegend.png',
+            image: 'referproplegend1.png',
             //secondimage: 'legend2.png',
             description: 'Reference property selection is based on identifying forest ownerships with a comparable number of hectares of a given forest type as found in the project area',
             location: {
@@ -159,11 +159,11 @@ var config = {
             ],
             
             onChapterExit: [
-                {
-                    layer: 'referenceproperties',
-                    opacity: 0,
-                 //   duration: 1000
-                }
+                // {
+                //     layer: 'referenceproperties',
+                //     opacity: 0,
+                //  //   duration: 1000
+                // }
 
             ],
 
