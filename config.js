@@ -223,13 +223,13 @@ var config = {
             alignment: 'left',
             hidden: false,
             title: 'Identify Comparable Harvests',
-            image: 'harvestexamples.png',
+            image: 'harvestexamples2.png',
             // secondimage: 'legend2.png',
             description: 'Identify example comparable harvests, based on cumulative treated hectares, on 2 reference properties for each harvest prescription in the baseline projection',
             location: {
-                center: [-91.7435760, 46.3600100],//-91.4991361, 46.2526692
-                zoom: 9.2,
-                pitch: 40,
+                center: [-91.9935760, 46.3600100],//-91.4991361, 46.2526692
+                zoom: 9.8,
+                pitch: 70,
                 bearing: 0,
             },
             mapAnimation: 'flyTo',
@@ -242,7 +242,7 @@ var config = {
                  //   duration: 1000
                 },
                 // {
-                //     layer: 'deciduous',
+                //     layer: 'harvestexamples',
                 //     opacity: 1,
                 //  //   duration: 1000
                 // }
