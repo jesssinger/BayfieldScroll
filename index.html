@@ -24,6 +24,29 @@
             color: #0071bc;
         }
 
+        #title-box {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #D6D1CA;
+            /* Set the background color */
+            color: #000000;
+            /* Set the text color */
+            padding: 20px;
+            /* Adjust the padding */
+            font-size: 22px;
+            /* Adjust the font size */
+            border-radius: 15px;
+            font-weight: bold;
+            text-align: center;
+            width: 60%;
+            /* Adjust the width */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Optional: Add box shadow */
+            opacity: 0.8
+        }
+
         #map {
             top: 0;
             height: 100vh;
@@ -40,7 +63,7 @@
             cursor: pointer;
         }
 
-        #mapInset {
+        /* #mapInset {
             bottom: 50px;
             right: 30px;
             height: 120px;
@@ -55,13 +78,13 @@
 
         #mapInset .mapboxgl-ctrl-bottom-left {
             display: none;
-        }
+        } */
 
-        @media (max-width: 500px) {
+        /* @media (max-width: 500px) {
             #mapInset {
                 display: none;
             }
-        }
+        } */
 
         #header {
             margin: auto;
@@ -131,13 +154,26 @@
         }
 
         .step {
-            padding-bottom: 50vh;
+            padding-bottom: 60vh;
             /* margin-bottom: 10vh; */
             opacity: 0.25;
         }
 
         .step.active {
             opacity: 0.8;
+        }
+
+        .step:first-child {
+            margin-top: 100px;
+            /* Adjust the margin-top value to create more space */
+        }
+
+
+        .step>div h1 {
+            font-size: 22px;
+            /* Adjust the font size for titles */
+            margin-bottom: 10px;
+            /* Optional: Adjust the spacing between title and other content */
         }
 
         .step>div {
@@ -187,7 +223,8 @@
 <body>
 
     <div id="map"></div>
-    <div id="mapInset"></div>
+    <div id="title-box">Diving Deep into Common Practice Silviculture: Anew’s Process for Comparable Harvest Site
+        Identification </div>
     <div id="story"></div>
 
     <script src="./config.js"></script>
@@ -342,22 +379,22 @@
         });
 
         // Create a inset map if enabled in config.js
-        if (config.inset) {
-            var insetMap = new mapboxgl.Map({
-                container: 'mapInset', // container id
-                style: 'mapbox://styles/mapbox/dark-v10', //hosted style id
-                center: config.chapters[0].location.center,
-                // Hardcode above center value if you want insetMap to be static.
-                zoom: 3, // starting zoom
-                hash: false,
-                interactive: false,
-                attributionControl: false,
-                projection: 'globe'
-                //Future: Once official mapbox-gl-js has globe view enabled,
-                //insetmap can be a globe with the following parameter.
-                //projection: 'globe'
-            });
-        }
+        // if (config.inset) {
+        //     var insetMap = new mapboxgl.Map({
+        //         container: 'mapInset', // container id
+        //         style: 'mapbox://styles/mapbox/dark-v10', //hosted style id
+        //         center: config.chapters[0].location.center,
+        //         // Hardcode above center value if you want insetMap to be static.
+        //         zoom: 3, // starting zoom
+        //         hash: false,
+        //         interactive: false,
+        //         attributionControl: false,
+        //         projection: 'globe'
+        //         //Future: Once official mapbox-gl-js has globe view enabled,
+        //         //insetmap can be a globe with the following parameter.
+        //         //projection: 'globe'
+        //     });
+        // }
 
         if (config.showPopup) {
             var popup = new mapboxgl.Popup({ offset: 25 }).setText('hey').addTo(map);
@@ -420,7 +457,7 @@
                     source: 'roads',
                     paint: {
                         'line-color': 'pink',
-                       // 'line-width': 2  // Adjust the width of the outline as needed
+                        // 'line-width': 2  // Adjust the width of the outline as needed
                     }
                 });
             });
@@ -446,14 +483,14 @@
                     // Incase you do not want to have a dynamic inset map,
                     // rather want to keep it a static view but still change the
                     // bbox as main map move: comment out the below if section.
-                    if (config.inset) {
-                        if (chapter.location.zoom < 5) {
-                            insetMap.flyTo({ center: chapter.location.center, zoom: 0 });
-                        }
-                        else {
-                            insetMap.flyTo({ center: chapter.location.center, zoom: 3 });
-                        }
-                    }
+                    // if (config.inset) {
+                    //     if (chapter.location.zoom < 5) {
+                    //         insetMap.flyTo({ center: chapter.location.center, zoom: 0 });
+                    //     }
+                    //     else {
+                    //         insetMap.flyTo({ center: chapter.location.center, zoom: 3 });
+                    //     }
+                    // }
                     if (config.showMarkers) {
                         marker.setLngLat(chapter.location.center);
                     }
@@ -555,50 +592,50 @@
                 }]
             }
 
-            if (initLoad) {
-                addInsetLayer(boundsJson);
-                initLoad = false;
-            } else {
-                updateInsetLayer(boundsJson);
-            }
+        //     if (initLoad) {
+        //         addInsetLayer(boundsJson);
+        //         initLoad = false;
+        //     } else {
+        //         updateInsetLayer(boundsJson);
+        //     }
+
+        // }
+
+        // function addInsetLayer(bounds) {
+        //     insetMap.addSource('boundsSource', {
+        //         'type': 'geojson',
+        //         'data': bounds
+        //     });
+
+        //     insetMap.addLayer({
+        //         'id': 'boundsLayer',
+        //         'type': 'fill',
+        //         'source': 'boundsSource', // reference the data source
+        //         'layout': {},
+        //         'paint': {
+        //             'fill-color': '#fff', // blue color fill
+        //             'fill-opacity': 0.2
+        //         }
+        //     });
+        //     // // Add a black outline around the polygon.
+        //     insetMap.addLayer({
+        //         'id': 'outlineLayer',
+        //         'type': 'line',
+        //         'source': 'boundsSource',
+        //         'layout': {},
+        //         'paint': {
+        //             'line-color': '#000',
+        //             'line-width': 1
+        //         }
+        //     });
+        // }
+
+        // function updateInsetLayer(bounds) {
+        //     insetMap.getSource('boundsSource').setData(bounds);
+        // }
+
 
         }
-
-        function addInsetLayer(bounds) {
-            insetMap.addSource('boundsSource', {
-                'type': 'geojson',
-                'data': bounds
-            });
-
-            insetMap.addLayer({
-                'id': 'boundsLayer',
-                'type': 'fill',
-                'source': 'boundsSource', // reference the data source
-                'layout': {},
-                'paint': {
-                    'fill-color': '#fff', // blue color fill
-                    'fill-opacity': 0.2
-                }
-            });
-            // // Add a black outline around the polygon.
-            insetMap.addLayer({
-                'id': 'outlineLayer',
-                'type': 'line',
-                'source': 'boundsSource',
-                'layout': {},
-                'paint': {
-                    'line-color': '#000',
-                    'line-width': 1
-                }
-            });
-        }
-
-        function updateInsetLayer(bounds) {
-            insetMap.getSource('boundsSource').setData(bounds);
-        }
-
-
-
         // setup resize event
         window.addEventListener('resize', scroller.resize);
 
