@@ -21,9 +21,9 @@ var config = {
             id: 'slug-style-id',
             alignment: 'left',
             hidden: false,
-            title: 'Delineate Project Region',
+            title: 'Delineate the Project Region and Respective “Wood Basket” ',
              image: 'projectregionlegend1.png',
-            description: 'A 150-mile driving distance buffer is created around the project boundary.',
+            description: 'A 150-mile driving distance buffer around the project area is calculated and used to delineate a reference region of comparable properties. This region is used to identify comparable properties with similar landowners and similar characteristics such as acreage, forest types, and harvesting activities to the project. The 150-mile driving distance buffer indicates the area around a project that is the same “wood basket” where comparable landowners are harvesting and delivering wood to the same forest product market as the project area',
             location: {
                 center: [-92.9991361, 46.2526692],
                 zoom: 6.2,
@@ -74,9 +74,9 @@ var config = {
             id: 'second-identifier',
             alignment: 'left',
             hidden: false,
-            title: 'Map Forest Types within the Region',
+            title: 'Identify and Map Forest Types within the Project Region',
             image: 'forestypeslegend2.png',
-            description: '                                                  ',
+            description: 'Mapping forest types within the reference region is a crucial step for identifying a baseline as it allows us to detect areas with similar forest types as the project. These forest types are determined using a combination of Anew’s carbon plot data, high-resolution satellite imagery and machine learning models.',
            //  secondimage: 'foresttypeslegend.png',
             location: {
                 center: [-92.9991361, 46.2526692],
@@ -103,7 +103,23 @@ var config = {
                     layer: 'bayfieldbiomassloss20192020',
                     opacity: 0,
                     // duration: 1000,
-                }
+                },
+                {
+                    layer: 'nlcd-polygons-evergreen',
+                    opacity: 1,
+                    // duration: 1000,
+                },
+                {
+                    layer: 'nlcd-polygons-mixed',
+                    opacity: 0.6,
+                    // duration: 1000,
+                },
+                {
+                    layer: 'nlcd-polygons3',
+                    opacity: 0.6,
+                    // duration: 1000,
+                },
+                
             ],
             onChapterExit: [
                 // {
@@ -115,7 +131,22 @@ var config = {
                     layer: 'bayfieldbiomassloss20192020',
                     opacity: 0,
                     //   duration: 1000,
-                }
+                },
+                {
+                    layer: 'nlcd-polygons-evergreen',
+                    opacity: 0,
+                    // duration: 1000,
+                },
+                {
+                    layer: 'nlcd-polygons-mixed',
+                    opacity: 0,
+                    // duration: 1000,
+                },
+                {
+                    layer: 'nlcd-polygons3',
+                    opacity: 0,
+                    // duration: 1000,
+                },
             ],
 
             // ],
@@ -135,10 +166,10 @@ var config = {
             title: 'Identify Reference Properties: Deciduous Forest Type',
             image: 'referproplegend1.png',
             //secondimage: 'legend2.png',
-            description: 'Reference property selection is based on identifying forest ownerships with a comparable number of hectares of a given forest type as found in the project area',
+            description: 'Once forest types are identified, harvest intensities on each forest type within the reference region are evaluated by identifying the harvesting activities over the previous 5-year period on the comparable properties.',
             location: {
                 center: [-91.7123652, 46.2240231],
-                zoom: 10,
+                zoom: 10.2,
                 pitch: 30,
                 bearing: 0,
             },
@@ -174,10 +205,10 @@ var config = {
             id: 'fourth-identifier',
             alignment: 'left',
             hidden: false,
-            title: 'Model Percent Forest Loss Over 5 Years',
+            title: 'Identify and Calculate Regional Harvest Activities / Intensity of Last 5 years',
             // image: 'legend_4.png',
             secondimage: 'forestlosslegend.png',
-            description: 'Identify harvest activities and intensities throughout the project region over the previous 5 years',
+            description: 'Once forest types are identified, harvest intensities on each forest type within the reference region are evaluated by identifying the harvesting activities over the previous 5-year period on the comparable properties.',
             location: {
                 center: [-92.9991361, 46.2526692],//-91.4991361, 46.2526692
                 zoom: 6.2,
@@ -211,11 +242,11 @@ var config = {
                     opacity: 0,
                     duration: 1000,
                 },
-                {
-                    layer: 'referenceproperties',
-                    opacity: 1,
-                    duration: 1000
-                }
+                // {
+                //     layer: 'referenceproperties',
+                //     opacity: 1,
+                //     duration: 1000
+                // }
             ],
         },
         {
@@ -225,7 +256,7 @@ var config = {
             title: 'Identify Comparable Harvests',
             image: 'harvestexamples2.png',
             // secondimage: 'legend2.png',
-            description: 'Identify example comparable harvests, based on cumulative treated hectares, on 2 reference properties for each harvest prescription in the baseline projection',
+            description: 'Comparable properties are used in the continuous evaluation and refinement of the baseline harvesting activities.  Comparable properties are chosen from a pool of nearby landowners with similar forest type(s), ecological condition(s), and/or species/product mixture.  Comparable landowners are identified within the same “Wood Basket” as the project area, thereby resulting in a baselines that are based off of the observed harvesting activities of comparable landowners in the same timber market.',
             location: {
                 center: [-91.9935760, 46.3600100],//-91.4991361, 46.2526692
                 zoom: 9.8,
